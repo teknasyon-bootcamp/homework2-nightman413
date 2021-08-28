@@ -20,3 +20,19 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+require_once ("functions.php");
+
+
+
+$randomNumber = getRandomPostCount(min: 2, max: 8);//functions.php'de yazdığımız fonksiyona min ve max değerleri veriyoruz, bir değişkene eşitliyoruz.
+
+
+$posts = getLatestPosts($randomNumber);
+
+foreach ($posts as $key => $post) {
+    $id = $key;
+    $type = $post['type'];
+    $title = $post['title'];
+    include ("post.php");
+}
+
