@@ -35,4 +35,3 @@ foreach ($posts as $key => $post) {
     $title = $post['title'];
     include ("post.php");
 }
-
