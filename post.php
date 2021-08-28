@@ -22,4 +22,39 @@
  * warning=sarı, normal=arkaplan yok)
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
+require_once ("functions.php");
+
+if(isset($id) == FALSE){ //eğer id yoksa id'yi 1 olarak alacak.
+    $id = 1;
+}
+
+if(isset($type) == FALSE){ //eğer type yoksa type'ı "normal" olarak alacak.
+    $type = "normal";
+}
+
+if(isset($title) == FALSE){ //eğer title yoksa title'ı "title yok" olarak alacak.
+    $title = "title yok";
+}
+
+switch ($type) { //type'ın aldığı değere göre $color değişkeninin değeri belirleniyor.
+    case "urgent":
+        $color = "red";
+        break;
+    case "warning":
+        $color = "yellow";
+        break;
+    case "normal":
+        $color = "none";
+        break;
+}
+
+echo "<div style=background-color:". $color .">";//post ekrana yazdırılıyor.
+        getPostDetails($id, $title); 
+echo "</div>";
+
+
+
+
+
+
 
