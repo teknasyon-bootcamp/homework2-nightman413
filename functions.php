@@ -21,9 +21,8 @@
  */
 
 
-if(isset($_POST)){
-    echo "403 Forbidden";
-    exit();
+if (basename($_SERVER["PHP_SELF"]) == basename(__FILE__)) {
+    exit("403 Forbidden.");
 }
 
 function getLatestPosts($count = 5)
@@ -62,3 +61,5 @@ EOT;
 function getRandomPostCount($min, $max){
     return rand($min,$max);
 }
+
+
