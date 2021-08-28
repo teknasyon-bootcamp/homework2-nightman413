@@ -14,7 +14,17 @@
  * Bu dosyada tanımlanan fonksiyonları diğer iki betik dosyasında kullanmanızı
  * istiyoruz. Ek olarak, `getRandomPostCount` isminde bir fonksiyon tanımlamanızı
  * bekliyoruz. Bununla ilgili detaylı bilgi diğer betiklerde yer alıyor.
+ * 
+ * 
+ * 
+ * yorum satırı koy!!
  */
+
+
+if(isset($_POST)){
+    echo "403 Forbidden";
+    exit();
+}
 
 function getLatestPosts($count = 5)
 {
@@ -27,13 +37,11 @@ function getLatestPosts($count = 5)
         } while (array_key_exists($id, $posts));
 
         $type = $postTypes[rand(0, count($postTypes)-1)];
-
         $posts[$id] = [
             "title" => "Yazı " . $i,
             "type" => $type
         ];
     }
-
     return $posts;
 }
 
@@ -49,3 +57,8 @@ EOT;
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+
+
+function getRandomPostCount($min, $max){
+    return rand($min,$max);
+}
